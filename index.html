@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Kishore Kumar V | Software Engineer</title>
+    <meta name="description" content="Portfolio of Kishore Kumar V – Software Engineer passionate about building robust, user-centric applications.">
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
@@ -21,20 +22,29 @@
           <div class="logo-cube"></div>
           <span>KK</span>
         </div>
-        <ul class="nav-menu">
+        <ul class="nav-menu" id="navMenu">
           <li><a href="#home" class="nav-link">Home</a></li>
           <li><a href="#about" class="nav-link">About</a></li>
           <li><a href="#projects" class="nav-link">Projects</a></li>
           <li><a href="#skills" class="nav-link">Skills</a></li>
           <li><a href="#contact" class="nav-link">Contact</a></li>
         </ul>
-        <div class="hamburger">
+        <div class="hamburger" id="hamburger" aria-label="Toggle menu" role="button" tabindex="0">
           <span></span>
           <span></span>
           <span></span>
         </div>
       </div>
     </nav>
+
+    <!-- Mobile Navigation Overlay -->
+    <div class="mobile-nav" id="mobileNav">
+      <a href="#home" class="mobile-nav-link">Home</a>
+      <a href="#about" class="mobile-nav-link">About</a>
+      <a href="#projects" class="mobile-nav-link">Projects</a>
+      <a href="#skills" class="mobile-nav-link">Skills</a>
+      <a href="#contact" class="mobile-nav-link">Contact</a>
+    </div>
 
     <!-- Hero Section -->
     <section id="home" class="hero">
@@ -167,12 +177,18 @@
     <!-- Projects Section -->
     <section id="projects" class="projects">
       <div class="container">
-        <div class="section-header">
-          <h2 class="section-title">Featured Projects</h2>
-          <div class="title-accent"></div>
+        <div class="projects-header-row">
+          <div class="section-header">
+            <h2 class="section-title">Featured Projects</h2>
+            <div class="title-accent"></div>
+          </div>
+          <button class="btn-add-project" id="openAddProjectModal" aria-label="Add new project">
+            <span class="plus-icon">＋</span> Add Project
+          </button>
         </div>
 
-        <div class="projects-container">
+        <div class="projects-container" id="projectsContainer">
+          <!-- Static project 1 -->
           <div class="project-card featured">
             <div class="project-badge">Featured</div>
             <div class="project-image">
@@ -196,17 +212,20 @@
                 <a
                   href="https://kishoreweb1826.github.io/project1/e-comerce.html"
                   class="project-link primary"
+                  target="_blank"
                   >View Live</a
                 >
                 <a
                   href="https://github.com/kishoreweb1826/project1"
                   class="project-link secondary"
+                  target="_blank"
                   >Source Code</a
                 >
               </div>
             </div>
           </div>
 
+          <!-- Static project 2 -->
           <div class="project-card">
             <div class="project-badge">Featured</div>
             <div class="project-image">
@@ -229,6 +248,7 @@
             </div>
           </div>
 
+          <!-- Static project 3 -->
           <div class="project-card">
             <div class="project-image">
               <div class="project-icon">📦</div>
@@ -252,6 +272,44 @@
         </div>
       </div>
     </section>
+
+    <!-- Add Project Modal -->
+    <div class="modal-overlay" id="addProjectModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <div class="modal">
+        <button class="modal-close" id="closeModal" aria-label="Close modal">✕</button>
+        <h2 id="modalTitle">Add New Project</h2>
+        <form class="modal-form" id="addProjectForm" novalidate>
+          <div class="modal-field">
+            <label for="projTitle">Project Title *</label>
+            <input type="text" id="projTitle" placeholder="My Awesome Project" required />
+          </div>
+          <div class="modal-field">
+            <label for="projDesc">Description *</label>
+            <textarea id="projDesc" rows="3" placeholder="Brief description of the project…" required></textarea>
+          </div>
+          <div class="modal-field">
+            <label for="projTech">Technologies (comma-separated)</label>
+            <input type="text" id="projTech" placeholder="React, Node.js, MongoDB" />
+          </div>
+          <div class="modal-field">
+            <label for="projIcon">Icon / Emoji</label>
+            <input type="text" id="projIcon" placeholder="🚀" maxlength="4" />
+          </div>
+          <div class="modal-field">
+            <label for="projLive">Live URL</label>
+            <input type="url" id="projLive" placeholder="https://example.com" />
+          </div>
+          <div class="modal-field">
+            <label for="projSource">Source Code URL</label>
+            <input type="url" id="projSource" placeholder="https://github.com/…" />
+          </div>
+          <div class="modal-actions">
+            <button type="button" class="btn-cancel" id="cancelModal">Cancel</button>
+            <button type="submit" class="btn-save">Save Project</button>
+          </div>
+        </form>
+      </div>
+    </div>
 
     <!-- Skills Section -->
     <section id="skills" class="skills">
@@ -287,7 +345,7 @@
           </div>
 
           <div class="skill-group">
-            <h3 class="skill-group-title">Frameworks & Libraries</h3>
+            <h3 class="skill-group-title">Frameworks &amp; Libraries</h3>
             <div class="skill-items">
               <div class="skill-item">
                 <span class="skill-name">React</span>
@@ -296,7 +354,7 @@
                 </div>
               </div>
               <div class="skill-item">
-                <span class="skill-name">HTML & CSS</span>
+                <span class="skill-name">HTML &amp; CSS</span>
                 <div class="skill-bar">
                   <div class="skill-progress" style="width: 95%"></div>
                 </div>
@@ -305,10 +363,10 @@
           </div>
 
           <div class="skill-group">
-            <h3 class="skill-group-title">Tools & Platforms</h3>
+            <h3 class="skill-group-title">Tools &amp; Platforms</h3>
             <div class="skill-items">
               <div class="skill-item">
-                <span class="skill-name">Git & GitHub</span>
+                <span class="skill-name">Git &amp; GitHub</span>
                 <div class="skill-bar">
                   <div class="skill-progress" style="width: 90%"></div>
                 </div>
@@ -371,7 +429,7 @@
                 <div class="contact-icon">🐙</div>
                 <div class="contact-details">
                   <h4>GitHub</h4>
-                  <p>https://github.com/kishoreweb1826</p>
+                  <p>github.com/kishoreweb1826</p>
                 </div>
               </a>
 
@@ -383,27 +441,11 @@
                 <div class="contact-icon">💼</div>
                 <div class="contact-details">
                   <h4>LinkedIn</h4>
-                  <p>https://www.linkedin.com/in/kishorekumar1826/</p>
+                  <p>linkedin.com/in/kishorekumar1826</p>
                 </div>
               </a>
             </div>
           </div>
-
-          <!-- <form class="contact-form">
-                    <div class="form-group">
-                        <input type="text" placeholder="Your Name" required>
-                        <div class="form-line"></div>
-                    </div>
-                    <div class="form-group">
-                        <input type="email" placeholder="Your Email" required>
-                        <div class="form-line"></div>
-                    </div>
-                    <div class="form-group">
-                        <textarea placeholder="Tell me about your project..." rows="4" required></textarea>
-                        <div class="form-line"></div>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Send Message</button>
-                </form> -->
         </div>
       </div>
     </section>
