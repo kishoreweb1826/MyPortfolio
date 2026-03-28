@@ -1418,6 +1418,10 @@ body {
 
 /* Tablet / Small Desktop */
 @media (max-width: 1024px) {
+    .hero {
+        padding-top: 90px;
+    }
+
     .hero-content {
         gap: 40px;
         padding: 0 30px;
@@ -1445,6 +1449,10 @@ body {
 
     .hamburger {
         display: flex;
+    }
+
+    .hero {
+        padding-top: 100px;
     }
 
     .hero-content {
@@ -1527,6 +1535,10 @@ body {
 
 /* Mobile portrait */
 @media (max-width: 480px) {
+    .hero {
+        padding-top: 110px;
+    }
+
     .hero-title {
         font-size: 32px;
     }
